@@ -161,8 +161,8 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 # default applications
 
 assign [class="discord"] $ws9
-assign [class="Spotify"] $ws10
-assign [class="code"] $ws4
+assign [class="spotify"] $ws10
+assign [class="Code"] $ws4
 assign [class="firefox"] $ws3
 
 # reload the configuration file
@@ -199,9 +199,13 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+# Exec only on login
+exec --no-startup-id firefox
+exec --no-startup-id spotify
+exec --no-startup-id code
+exec --no-startup-id discord
 
-#User defined commands
-
+# Exec everytime
 exec_always feh --bg-scale /home/dario/Pictures/wallpaper.jpg
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 
