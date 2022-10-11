@@ -202,6 +202,7 @@ gaps outer 5
 smart_gaps inverse_outer
 smart_borders on
 default_border pixel 1
+default_floating_border none
 
 # Exec only on login
 exec --no-startup-id udiskie
