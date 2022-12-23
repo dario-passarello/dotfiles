@@ -211,6 +211,7 @@ exec --no-startup-id udiskie
 exec --no-startup-id setxkbmap -layout it
 exec --no-startup-id discord
 exec --no-startup-id picom  --blur-method dual_kawase -b
+exec --no-startup-id xmousepasteblock
 
 # Exec everytime
 exec_always feh --bg-scale /home/dario/Pictures/wallpaper.jpg
