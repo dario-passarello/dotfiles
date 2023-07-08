@@ -71,6 +71,13 @@ bindsym $mod+d exec "rofi -modi drun,run -show drun"
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
 
+# kill focused window
+bindsym $mod+m exec --no-startup-id /home/dario/.dotfiles/.config/i3/hdmi_on.sh
+bindsym $mod+Shift+m exec --no-startup-id /home/dario/.dotfiles/.config/i3/hdmi_off.sh
+
+
+
+
 # change focus
 bindsym $mod+j focus left
 bindsym $mod+k focus down
@@ -171,6 +178,8 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 bindsym --release $mod+Print exec "flameshot gui"
 
+bindsym $mod+Shift+z exec "i3lock -c 000000"
+
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
@@ -212,9 +221,8 @@ exec --no-startup-id setxkbmap -layout it
 exec --no-startup-id discord
 exec --no-startup-id picom  --blur-method dual_kawase -b
 exec --no-startup-id xmousepasteblock
-
 # Exec everytime
-exec_always feh --bg-scale /home/dario/Pictures/wallpaper.jpg
+exec_always feh --bg-scale /home/dario/Pictures/wallpaper.jpg --bg-scale /home/dario/Pictures/wallpaper.jpg
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 
 #Lock screen

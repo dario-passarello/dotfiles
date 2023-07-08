@@ -20,59 +20,12 @@
 " absolutely depends on these things.
 "
 " If you have any questions, email me at pthrash@me.com
-
-" Setup Vundle:
-" For this to work, you must install the vundle plugin manually.
-" https://github.com/gmarik/vundle
-" To install vundle, copy all the files from the repo into your respective
-" folders within ~/.vim
-set nocompatible " Fuck VI... That's for grandpas.
-filetype off
-
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-
-" Vundle let's you specify a plugin in a number of formats, but my favorite
-" allows you to grab plugins straight off of github, just specify the bundle
-" in the following format:
-" Bundle 'githubUsername/repoName'
-
-" Let vundle manage itself:
-Bundle 'gmarik/vundle'
-
-" Just a shitload of color schemes.
-" https://github.com/flazz/vim-colorschemes#current-colorschemes
-Bundle 'flazz/vim-colorschemes'
-
-" Fuzzy finder -- absolutely must have.
-Bundle 'kien/ctrlp.vim'
-
-" Support for easily toggling comments.
-Bundle 'tpope/vim-commentary'
-
-" In addtion to the above plugins, you'll likely need some for individual
-" non-standard syntaxes that aren't pre-bundled with vim. Here are some I use,
-" these are required for me, but depending on what code you write, obviously
-" this may differ for you.
-
-" Proper JSON filetype detection, and support.
-Bundle 'leshill/vim-json'
-
-" vim already has syntax support for javascript, but the indent support is
-" horrid. This fixes that.
-Bundle 'pangloss/vim-javascript'
-
-" vim indents HTML very poorly on it's own. This fixes a lot of that.
-Bundle 'indenthtml.vim'
-
-" I write markdown a lot. This is a good syntax.
-Bundle 'tpope/vim-markdown'
-
-" LessCSS -- I use this every day.
-Bundle 'groenewege/vim-less'
-
-" Coffee-script syntax.
-Bundle 'kchmck/vim-coffee-script'
+call plug#begin()
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'ayu-theme/ayu-vim'
+Plug 'scrooloose/nerdtree'
+call plug#end()
 
 
 " We have to turn this stuff back on if we want all of our features.
@@ -110,7 +63,8 @@ set virtualedit+=block
 
 " leader is a key that allows you to have your own "namespace" of keybindings.
 " You'll see it a lot below as <leader>
-let mapleader = ","
+nnoremap <SPACE> <Nop>
+let mapleader = " "
 
 
 " So we don't have to press shift when we want to get into command mode.
@@ -123,6 +77,14 @@ inoremap jj <esc>
 " create new vsplit, and switch to it.
 noremap <leader>v <C-w>v
 
+" Hardmode
+nnoremap <Left> :echo "No left for you. Use H instead!"<CR>
+
+nnoremap <Right> :echo "No rights for you. Use L instead!"<CR>
+
+nnoremap <Up> :echo "No up for you. Use K instead!"<CR>
+
+nnoremap <Down> :echo "No down for you. Use J instead!"<CR>
 " bindings for easy split nav
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
@@ -146,6 +108,9 @@ nnoremap <leader><leader> <c-^>
 noremap j gj
 noremap k gk
 
+
+inoremap jj <Esc>
+
 " Plugin settings:
 " Below are some 'sane' (IMHO) defaults for a couple of the above plugins I
 " referenced.
@@ -160,8 +125,25 @@ let g:ctrlp_map = '<c-t>'
 
 " Let ctrlp have up to 30 results.
 let g:ctrlp_max_height = 30
+"Set airline configs
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter= 'unique_tail_improved'
+
+
+"Set nerd tree
+
+
+nnoremap <leader>n :NERDTreeFocus<CR>
+nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFind<CR>
 
 
 " Finally the color scheme. Choose whichever you want from the list in the
 " link above (back up where we included the bundle of a ton of themes.)
-colorscheme autumnleaf
+set termguicolors
+let ayucolor="dark"
+colorscheme ayu
+
+"No show mode in the default bar
+set noshowmode
