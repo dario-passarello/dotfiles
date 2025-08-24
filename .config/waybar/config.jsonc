@@ -109,7 +109,7 @@
     "clock": {
         // "timezone": "America/New_York",
         "tooltip-format": "<tt><small>{calendar}</small></tt>",
-        "format": "{:%Y-%m-%d %H:%m}",
+        "format": "{:%Y-%m-%d %H:%M}",
         "on-click": "gnome-calendar"
     },
     "cpu": {
